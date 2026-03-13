@@ -1,0 +1,230 @@
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+/* ===== TOP BAR ===== */
+.topbar {
+  height: 70px;
+  background: linear-gradient(90deg, #020617, #111827);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-btn {
+  font-size: 22px;
+  cursor: pointer;
+  color: #facc15;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #facc15;
+}
+
+.topbar p {
+  margin: 0;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid #facc15;
+  color: #facc15;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #facc15;
+  color: #020617;
+}
+
+/* ===== LAYOUT ===== */
+.layout {
+  display: flex;
+  height: calc(100vh - 70px);
+  overflow: hidden;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 220px;
+  background: #020617;
+  border-right: 1px solid #1e293b;
+  transition: transform 0.3s ease;
+}
+
+/* hidden by default */
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 16px 25px;
+  cursor: pointer;
+  color: #cbd5f5;
+  font-size: 15px;
+}
+
+.sidebar li:hover {
+  color: #facc15;
+}
+
+.sidebar li.active {
+  border-left: 4px solid #facc15;
+  color: #facc15;
+  background: #111827;
+}
+
+/* ===== MAIN CONTENT ===== */
+.content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #facc15;
+}
+
+.card p {
+  color: #9ca3af;
+}
+
+/* ===== UPLOAD ===== */
+.upload-card input[type="file"] {
+  margin-top: 15px;
+  width: 100%;
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px dashed #334155;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.upload-card button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #facc15, #eab308);
+  color: #020617;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.upload-card button:hover {
+  opacity: 0.9;
+}
+
+/* ===== STATUS ===== */
+.status-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+/* ===== RESULTS ===== */
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.results-header h2 {
+  margin: 0;
+  color: #facc15;
+}
+
+#downloadBtn {
+  background: transparent;
+  border: 1px solid #facc15;
+  color: #facc15;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#downloadBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#downloadBtn:hover:not(:disabled) {
+  background: #facc15;
+  color: #020617;
+}
+
+/* ===== CLAUSE GRID ===== */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.results-grid .card {
+  border-left: 4px solid #facc15;
+}
+
+.results-grid strong {
+  color: #facc15;
+  font-size: 16px;
+}
+
+.results-grid p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}

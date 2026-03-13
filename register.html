@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+
+<div class="login-card">
+  <h2>Register</h2>
+
+  <input id="username" type="text" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+
+  <!-- IMPORTANT -->
+  <button type="button" onclick="register()">Register</button>
+
+  <p>
+    Already have an account?
+    <a href="login.html">Login</a>
+  </p>
+</div>
+
+<script scr="app.js">
+async function register() {
+  alert("Register clicked"); // ✅ trigger test
+
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  const res = await fetch("http://127.0.0.1:8000/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password })
+  });
+
+  if (!res.ok) {
+    alert("User already exists");
+    return;
+  }
+
+  alert("Registered successfully");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

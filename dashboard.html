@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Legal Clause AI – Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+
+<body onload="checkAuth()">
+  <!-- ========== TOP BAR ========== -->
+  <header class="topbar">
+  <div class="topbar-left">
+    <span class="menu-btn" onclick="toggleSidebar()">☰</span>
+    <div>
+      <h1>Legal Clause AI</h1>
+      <p>Key Clause Identification System</p>
+    </div>
+  </div>
+  <button class="logout-btn" onclick="logout()">Logout</button>
+</header>
+
+
+  <!-- ========== LAYOUT ========== -->
+  <div class="layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <ul>
+        <li class="active">📄 Clause Detection</li>
+        <li>📊 History</li>
+        <li>⚙ Settings</li>
+      </ul>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="content">
+
+      <!-- UPLOAD CARD -->
+      <section class="card upload-card">
+        <h2>Upload Legal PDF</h2>
+        <p>Select a legal document to identify key clauses</p>
+
+        <input type="file" id="pdfFile" accept=".pdf" />
+        <button onclick="uploadPDF()">Analyze Document</button>
+
+        <p id="status" class="status-text"></p>
+      </section>
+
+      <!-- RESULTS -->
+      <section class="results-section">
+        <div class="results-header">
+          <h2>Detected Clauses</h2>
+          <button id="downloadBtn" onclick="downloadPDF()" disabled>
+            📥 Download PDF
+          </button>
+        </div>
+
+        <div id="results" class="results-grid">
+          <!-- Clause cards will appear here -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
